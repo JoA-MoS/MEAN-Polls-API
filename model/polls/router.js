@@ -6,12 +6,15 @@ router.route('/')
   .get((...args) => controller.find(...args))
   .post((...args) => controller.create(...args));
 
-router.route('/quiz')
-  .get((...args) => controller.randomThree(...args))
-
 router.route('/:id')
   .put((...args) => controller.update(...args))
   .get((...args) => controller.findById(...args))
   .delete((...args) => controller.remove(...args));
+
+
+router.route('/:id/options/:optionId/votes')
+  .post((...args) => controller.postVote(...args))
+  .get((...args) => controller.getVotes(...args))
+
 
 module.exports = router;
